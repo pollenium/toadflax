@@ -1,0 +1,30 @@
+{
+  "name": "pollenium-toadflax",
+  "version": "0.0.0",
+  "description": "",
+  "main": "node/index.js",
+  "scripts": {
+    "compile": "succory && tsc",
+    "tsc": "tsc",
+    "succory": "succory"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/pollenium/toadflax.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pollenium/toadflax/issues"
+  },
+  "homepage": "https://github.com/pollenium/toadflax#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "fs-extra": "^8.1.0",
+    "openzeppelin-solidity": "^2.4.0",
+    "pollenium-succory": "^1.0.1",
+    "solc": "^0.5.12",
+    "tsc": "^1.20150623.0",
+    "typescript": "^3.7.5"
+  }
+}
