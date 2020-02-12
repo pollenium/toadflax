@@ -20,5 +20,5 @@ module.exports = {
     fileName: 'Token.sol',
     contractName: 'Token'
   }],
-  outPath: './ts/index.ts'
+  tsPath: './ts/index.ts'
 }

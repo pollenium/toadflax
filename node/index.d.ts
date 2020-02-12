@@ -1,5 +1,2 @@
-export interface ContractOutput {
-    abi: Object;
-    bytecodeHex: string;
-}
+import { ContractOutput } from 'pollenium-clover';
 export declare const token: ContractOutput;
