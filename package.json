@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/pollenium/toadflax#readme",
   "dependencies": {
-    "pollenium-clover": "^2.0.0",
+    "pollenium-clover": "^6.1.2",
     "pollenium-uvaursi": "^8.5.0"
   },
   "devDependencies": {
