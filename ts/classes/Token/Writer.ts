@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
-import { Address, Uint256, Bytes32, Uint8 } from 'pollenium-buttercup'
-import { Uu } from 'pollenium-uvaursi'
+import { Address, Uint256, Bytes32, Uint8, Uintable } from 'pollenium-buttercup'
+import { Uu, Uish } from 'pollenium-uvaursi'
 import { ContractWriter, ContractWriterChildStruct } from 'pollenium-clover'
 import { token } from '../../'
 
@@ -15,18 +15,20 @@ export class TokenWriter extends ContractWriter {
 
 
   async transfer(struct: {
-    to: Address,
-    amount: Uint256
+    to: Uish,
+    amount: Uintable
   }): Promise<void> {
-    const { to, amount } = struct
+    const to = new Address(struct.to)
+    const amount = new Uint256(struct.amount)
     await this.ethersContract.transfer(to.uu.toPhex(), amount.uu.toPhex())
   }
 
   async setAllowance(struct: {
-    spender: Address,
-    amount: Uint256
+    spender: Uish,
+    amount: Uintable
   }) {
-    const { spender, amount } = struct
+    const spender = new Address(struct.spender)
+    const amount = new Uint256(struct.amount)
     await this.ethersContract.approve(spender.uu.toPhex(), amount.uu.toPhex())
   }
 

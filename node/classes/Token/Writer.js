@@ -60,6 +60,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
+var pollenium_buttercup_1 = require("pollenium-buttercup");
 var pollenium_clover_1 = require("pollenium-clover");
 var __1 = require("../../");
 var TokenWriter = /** @class */ (function (_super) {
@@ -73,7 +74,8 @@ var TokenWriter = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        to = struct.to, amount = struct.amount;
+                        to = new pollenium_buttercup_1.Address(struct.to);
+                        amount = new pollenium_buttercup_1.Uint256(struct.amount);
                         return [4 /*yield*/, this.ethersContract.transfer(to.uu.toPhex(), amount.uu.toPhex())];
                     case 1:
                         _a.sent();
@@ -88,7 +90,8 @@ var TokenWriter = /** @class */ (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        spender = struct.spender, amount = struct.amount;
+                        spender = new pollenium_buttercup_1.Address(struct.spender);
+                        amount = new pollenium_buttercup_1.Uint256(struct.amount);
                         return [4 /*yield*/, this.ethersContract.approve(spender.uu.toPhex(), amount.uu.toPhex())];
                     case 1:
                         _a.sent();

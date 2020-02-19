@@ -1,6 +1,6 @@
 import { ethers } from 'ethers'
 import { Address, Uint256 } from 'pollenium-buttercup'
-import { Uu } from 'pollenium-uvaursi'
+import { Uu, Uish } from 'pollenium-uvaursi'
 import { ContractReader, ContractReaderChildStruct } from 'pollenium-clover'
 import { token } from '../../'
 
@@ -14,7 +14,8 @@ export class TokenReader extends ContractReader {
   }
 
 
-  async fetchBalance(holder: Address): Promise<Uint256> {
+  async fetchBalance(holderUish: Uish): Promise<Uint256> {
+    const holder = new Address(holderUish)
     const holderBignumber = await this.ethersContract.balanceOf(holder.uu.toPhex())
     return new Uint256(Uu.fromHexish(
       await ethers.utils.hexlify(holderBignumber)
@@ -22,10 +23,11 @@ export class TokenReader extends ContractReader {
   }
 
   async fetchAllowance(struct: {
-    holder: Address,
-    spender: Address
+    holder: Uish,
+    spender: Uish
   }): Promise<Uint256> {
-    const { holder, spender } = struct
+    const holder = new Address(struct.holder)
+    const spender = new Address(struct.spender)
     const allowanceBignumber = await this.ethersContract.allowance(
       holder.uu.toPhex(),
       spender.uu.toPhex()

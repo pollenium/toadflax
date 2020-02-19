@@ -70,12 +70,14 @@ var TokenReader = /** @class */ (function (_super) {
     function TokenReader(struct) {
         return _super.call(this, __assign(__assign({}, __1.token), struct)) || this;
     }
-    TokenReader.prototype.fetchBalance = function (holder) {
+    TokenReader.prototype.fetchBalance = function (holderUish) {
         return __awaiter(this, void 0, void 0, function () {
-            var holderBignumber, _a, _b, _c;
+            var holder, holderBignumber, _a, _b, _c;
             return __generator(this, function (_d) {
                 switch (_d.label) {
-                    case 0: return [4 /*yield*/, this.ethersContract.balanceOf(holder.uu.toPhex())];
+                    case 0:
+                        holder = new pollenium_buttercup_1.Address(holderUish);
+                        return [4 /*yield*/, this.ethersContract.balanceOf(holder.uu.toPhex())];
                     case 1:
                         holderBignumber = _d.sent();
                         _a = pollenium_buttercup_1.Uint256.bind;
@@ -92,7 +94,8 @@ var TokenReader = /** @class */ (function (_super) {
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
-                        holder = struct.holder, spender = struct.spender;
+                        holder = new pollenium_buttercup_1.Address(struct.holder);
+                        spender = new pollenium_buttercup_1.Address(struct.spender);
                         return [4 /*yield*/, this.ethersContract.allowance(holder.uu.toPhex(), spender.uu.toPhex())];
                     case 1:
                         allowanceBignumber = _d.sent();
