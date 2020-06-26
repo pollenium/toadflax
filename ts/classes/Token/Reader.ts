@@ -13,7 +13,6 @@ export class TokenReader extends ContractReader {
     })
   }
 
-
   async fetchBalance(holderUish: Uish): Promise<Uint256> {
     const holder = new Address(holderUish)
     const holderBignumber = await this.ethersContract.balanceOf(holder.uu.toPhex())

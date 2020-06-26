@@ -19,8 +19,9 @@
   },
   "homepage": "https://github.com/pollenium/toadflax#readme",
   "dependencies": {
-    "pollenium-clover": "^6.1.2",
-    "pollenium-uvaursi": "^8.5.0"
+    "pollenium-buttercup": "^19.6.1",
+    "pollenium-clover": "^7.0.0",
+    "pollenium-uvaursi": "^8.11.0"
   },
   "devDependencies": {
     "fs-extra": "^8.1.0",

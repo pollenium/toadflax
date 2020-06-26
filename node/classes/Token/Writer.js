@@ -72,15 +72,9 @@ var TokenWriter = /** @class */ (function (_super) {
         return __awaiter(this, void 0, void 0, function () {
             var to, amount;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        to = new pollenium_buttercup_1.Address(struct.to);
-                        amount = new pollenium_buttercup_1.Uint256(struct.amount);
-                        return [4 /*yield*/, this.ethersContract.transfer(to.uu.toPhex(), amount.uu.toPhex())];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                to = new pollenium_buttercup_1.Address(struct.to);
+                amount = new pollenium_buttercup_1.Uint256(struct.amount);
+                return [2 /*return*/, this.genStateChange(this.ethersContract.transfer(to.uu.toPhex(), amount.uu.toPhex()))];
             });
         });
     };
@@ -88,15 +82,9 @@ var TokenWriter = /** @class */ (function (_super) {
         return __awaiter(this, void 0, void 0, function () {
             var spender, amount;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        spender = new pollenium_buttercup_1.Address(struct.spender);
-                        amount = new pollenium_buttercup_1.Uint256(struct.amount);
-                        return [4 /*yield*/, this.ethersContract.approve(spender.uu.toPhex(), amount.uu.toPhex())];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
+                spender = new pollenium_buttercup_1.Address(struct.spender);
+                amount = new pollenium_buttercup_1.Uint256(struct.amount);
+                return [2 /*return*/, this.genStateChange(this.ethersContract.approve(spender.uu.toPhex(), amount.uu.toPhex()))];
             });
         });
     };
