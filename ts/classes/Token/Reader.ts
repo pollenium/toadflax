@@ -1,5 +1,5 @@
 import { ethers } from 'ethers'
-import { Address, Uint256 } from 'pollenium-buttercup'
+import { Address, Uint256, Uint8 } from 'pollenium-buttercup'
 import { Uu, Uish } from 'pollenium-uvaursi'
 import { ContractReader, ContractReaderChildStruct } from 'pollenium-clover'
 import { token } from '../../'
@@ -18,12 +18,12 @@ export class TokenReader extends ContractReader {
   }
 
   async fetchSymbol(): Promise<string> {
-    return await this.ethersContract.symbole()
+    return await this.ethersContract.symbol()
   }
 
-  async fetchDecimals(): Promise<Uint256> {
+  async fetchDecimals(): Promise<Uint8> {
     const decimalsBignumber = await this.ethersContract.decimals()
-    return new Uint256(Uu.fromHexish(
+    return new Uint8(Uu.fromHexish(
       await ethers.utils.hexlify(decimalsBignumber)
     ))
   }

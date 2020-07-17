@@ -84,7 +84,7 @@ var TokenReader = /** @class */ (function (_super) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.ethersContract.symbole()];
+                    case 0: return [4 /*yield*/, this.ethersContract.symbol()];
                     case 1: return [2 /*return*/, _a.sent()];
                 }
             });
@@ -98,10 +98,10 @@ var TokenReader = /** @class */ (function (_super) {
                     case 0: return [4 /*yield*/, this.ethersContract.decimals()];
                     case 1:
                         decimalsBignumber = _d.sent();
-                        _a = pollenium_buttercup_1.Uint256.bind;
+                        _a = pollenium_buttercup_1.Uint8.bind;
                         _c = (_b = pollenium_uvaursi_1.Uu).fromHexish;
                         return [4 /*yield*/, ethers_1.ethers.utils.hexlify(decimalsBignumber)];
-                    case 2: return [2 /*return*/, new (_a.apply(pollenium_buttercup_1.Uint256, [void 0, _c.apply(_b, [_d.sent()])]))()];
+                    case 2: return [2 /*return*/, new (_a.apply(pollenium_buttercup_1.Uint8, [void 0, _c.apply(_b, [_d.sent()])]))()];
                 }
             });
         });
