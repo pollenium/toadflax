@@ -70,6 +70,58 @@ var TokenReader = /** @class */ (function (_super) {
     function TokenReader(struct) {
         return _super.call(this, __assign(__assign({}, __1.token), struct)) || this;
     }
+    TokenReader.prototype.fetchName = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.ethersContract.name()];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    TokenReader.prototype.fetchSymbol = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.ethersContract.symbole()];
+                    case 1: return [2 /*return*/, _a.sent()];
+                }
+            });
+        });
+    };
+    TokenReader.prototype.fetchDecimals = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var decimalsBignumber, _a, _b, _c;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0: return [4 /*yield*/, this.ethersContract.decimals()];
+                    case 1:
+                        decimalsBignumber = _d.sent();
+                        _a = pollenium_buttercup_1.Uint256.bind;
+                        _c = (_b = pollenium_uvaursi_1.Uu).fromHexish;
+                        return [4 /*yield*/, ethers_1.ethers.utils.hexlify(decimalsBignumber)];
+                    case 2: return [2 /*return*/, new (_a.apply(pollenium_buttercup_1.Uint256, [void 0, _c.apply(_b, [_d.sent()])]))()];
+                }
+            });
+        });
+    };
+    TokenReader.prototype.fetchTotalSupply = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var totalSupplyBignumber, _a, _b, _c;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0: return [4 /*yield*/, this.ethersContract.totalSupply()];
+                    case 1:
+                        totalSupplyBignumber = _d.sent();
+                        _a = pollenium_buttercup_1.Uint256.bind;
+                        _c = (_b = pollenium_uvaursi_1.Uu).fromHexish;
+                        return [4 /*yield*/, ethers_1.ethers.utils.hexlify(totalSupplyBignumber)];
+                    case 2: return [2 /*return*/, new (_a.apply(pollenium_buttercup_1.Uint256, [void 0, _c.apply(_b, [_d.sent()])]))()];
+                }
+            });
+        });
+    };
     TokenReader.prototype.fetchBalance = function (holderUish) {
         return __awaiter(this, void 0, void 0, function () {
             var holder, holderBignumber, _a, _b, _c;

@@ -13,6 +13,29 @@ export class TokenReader extends ContractReader {
     })
   }
 
+  async fetchName(): Promise<string> {
+    return await this.ethersContract.name()
+  }
+
+  async fetchSymbol(): Promise<string> {
+    return await this.ethersContract.symbole()
+  }
+
+  async fetchDecimals(): Promise<Uint256> {
+    const decimalsBignumber = await this.ethersContract.decimals()
+    return new Uint256(Uu.fromHexish(
+      await ethers.utils.hexlify(decimalsBignumber)
+    ))
+  }
+
+  async fetchTotalSupply(): Promise<Uint256> {
+    const totalSupplyBignumber = await this.ethersContract.totalSupply()
+    return new Uint256(Uu.fromHexish(
+      await ethers.utils.hexlify(totalSupplyBignumber)
+    ))
+  }
+
+
   async fetchBalance(holderUish: Uish): Promise<Uint256> {
     const holder = new Address(holderUish)
     const holderBignumber = await this.ethersContract.balanceOf(holder.uu.toPhex())
